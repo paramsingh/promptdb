@@ -10,8 +10,10 @@ def init_db() -> sqlite3.Connection:
     return connection
 
 
-def create_tables():
+def create_tables() -> None:
     global connection
+    if connection is None:
+        return
     cursor = connection.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS prompt (
