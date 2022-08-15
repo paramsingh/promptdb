@@ -17,7 +17,7 @@ class Prompt:
     model: str
     created: datetime.datetime
 
-    def to_dict(self) -> Dict[str, Any(str, int)]:
+    def to_dict(self) -> Dict[str, Any[str, int]]:
         return {
             "id": self.id,
             "uuid": self.uuid,
@@ -51,7 +51,14 @@ def get_prompt(id: str) -> Prompt:
     cursor = connection.cursor()
 
     val = cursor.execute("""
-        SELECT id, uuid, text, model, created
+        SELECT id
+             , uuid
+             , text
+             , model
+             , created
+             , sample_input
+             , sample_output
+             , description
           FROM prompt
          WHERE uuid = ?
     """, (id,))
@@ -62,4 +69,7 @@ def get_prompt(id: str) -> Prompt:
         text=p[2],
         model=p[3],
         created=p[4],
+        sample_input=p[5],
+        sample_output=p[6],
+        description=p[7],
     )
