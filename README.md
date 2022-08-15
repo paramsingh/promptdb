@@ -2,6 +2,7 @@
 
 prompt db is a platform to save and share prompts for models like GPT-3, Dall-E or Midjourney.
 
+![](logo.png)
 
 # License
 
