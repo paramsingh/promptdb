@@ -1,4 +1,5 @@
 import datetime
+from typing import Any, Dict, Optional
 import uuid
 from dataclasses import dataclass
 
@@ -10,8 +11,23 @@ class Prompt:
     id: int
     uuid: str
     text: str
+    sample_input: Optional[str]
+    sample_output: Optional[str]
+    description: Optional[str]
     model: str
     created: datetime.datetime
+
+    def to_dict(self) -> Dict[str, Any(str, int)]:
+        return {
+            "id": self.id,
+            "uuid": self.uuid,
+            "text": self.text,
+            "sample_input": self.sample_input,
+            "sample_output": self.sample_output,
+            "description": self.description,
+            "model": self.model,
+            "created": self.created.strftime("%s"),
+        }
 
 
 def create_prompt(

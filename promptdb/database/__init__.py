@@ -12,11 +12,14 @@ def create_tables() -> None:
     cursor = connection.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS prompt (
-            id          INTEGER PRIMARY KEY AUTOINCREMENT,
-            uuid        TEXT NOT NULL,
-            text        TEXT NOT NULL,
-            model       TEXT NOT NULL,
-            created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            id              INTEGER PRIMARY KEY AUTOINCREMENT,
+            uuid            TEXT NOT NULL,
+            text            TEXT NOT NULL,
+            model           TEXT NOT NULL,
+            sample_input    TEXT,
+            sample_output   TEXT,
+            description     TEXT,
+            created         TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
     """)
 

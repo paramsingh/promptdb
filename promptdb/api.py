@@ -17,4 +17,4 @@ def save_prompt() -> Response:
 def get_prompt_endpoint() -> Response:
     uuid = request.args['id']
     prompt = get_prompt(id=uuid)
-    return jsonify({"prompt": prompt.text})
+    return jsonify(prompt.to_dict())
