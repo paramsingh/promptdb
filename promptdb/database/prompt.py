@@ -33,14 +33,17 @@ class Prompt:
 def create_prompt(
     text: str,
     model: str,
+    sample_input: Optional[str],
+    sample_output: Optional[str],
+    description: Optional[str],
 ) -> str:
     id = str(uuid.uuid4())
     connection = db.init_db()
     cursor = connection.cursor()
     cursor.execute("""
-        INSERT INTO prompt (uuid, text, model)
-        VALUES (?, ?, ?)
-    """, (id, text, model))
+        INSERT INTO prompt (uuid, text, model, sample_input, sample_output, description)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (id, text, model, sample_input, sample_output, description))
     connection.commit()
     connection.close()
     return id
