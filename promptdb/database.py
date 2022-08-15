@@ -1,6 +1,23 @@
 import sqlite3
 
+connection = None
+
 
 def init_db() -> sqlite3.Connection:
+    global connection
     # TODO: this path needs to be a config option.
-    return sqlite3.connect("database.db")
+    connection = sqlite3.connect("database.db")
+    return connection
+
+
+def create_tables():
+    global connection
+    cursor = connection.cursor()
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS prompt (
+            id          INTEGER PRIMARY KEY AUTOINCREMENT,
+            text        TEXT NOT NULL,
+            model       TEXT NOT NULL,
+            created     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        );
+    """)
