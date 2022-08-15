@@ -1,5 +1,5 @@
 import datetime
-from typing import Any, Dict, Optional
+from typing import Dict, Optional, Union
 import uuid
 from dataclasses import dataclass
 
@@ -17,7 +17,7 @@ class Prompt:
     model: str
     created: datetime.datetime
 
-    def to_dict(self) -> Dict[str, Any[str, int]]:
+    def to_dict(self) -> Dict[str, Union[Optional[str], int]]:
         return {
             "id": self.id,
             "uuid": self.uuid,
