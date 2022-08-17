@@ -26,8 +26,8 @@ def save_prompt() -> Response:
     return jsonify({"id": id})
 
 
-@ api_bp.route('/prompt/get')
-@ cross_origin()
+@api_bp.route('/prompt/get')
+@cross_origin()
 def get_prompt_endpoint() -> Response:
     uuid = request.args['id']
     prompt = get_prompt(id=uuid)
