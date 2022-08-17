@@ -11,6 +11,7 @@ import PromptSubmitted from '../components/PromptSubmitted';
 
 const NewPrompt: NextPage = () => {
 
+  const [id, setId] = useState<string>('');
   const [text, setText] = useState<string>('');
   const [sampleInput, setSampleInput] = useState<string>('');
   const [sampleOutput, setSampleOutput] = useState<string>('');
@@ -19,7 +20,7 @@ const NewPrompt: NextPage = () => {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    submitPrompt(text, sampleInput, sampleOutput, description, setSubmitted);
+    submitPrompt(text, sampleInput, sampleOutput, description, setSubmitted, setId);
   };
 
   const onInput = (e: any, fn: (s: string) => void): void => {
@@ -29,7 +30,7 @@ const NewPrompt: NextPage = () => {
   }
 
   if (submitted) {
-    return <PromptSubmitted />
+    return <PromptSubmitted id={id}/>
   }
 
   return (

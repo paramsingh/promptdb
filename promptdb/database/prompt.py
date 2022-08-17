@@ -26,7 +26,7 @@ class Prompt:
             "sample_output": self.sample_output,
             "description": self.description,
             "model": self.model,
-            "created": self.created.strftime("%s"),
+            "created": self.created,
         }
 
 
@@ -66,6 +66,8 @@ def get_prompt(id: str) -> Prompt:
          WHERE uuid = ?
     """, (id,))
     p = val.fetchone()
+    if not p:
+        return None
     return Prompt(
         id=p[0],
         uuid=p[1],

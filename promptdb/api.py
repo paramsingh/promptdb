@@ -31,4 +31,6 @@ def save_prompt() -> Response:
 def get_prompt_endpoint() -> Response:
     uuid = request.args['id']
     prompt = get_prompt(id=uuid)
+    if prompt is None:
+        return jsonify({"error": "not found"}), 404
     return jsonify(prompt.to_dict())

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css'
+import Link from 'next/link';
 
-const PromptSubmitted = () => {
+const PromptSubmitted = ({id}: {id: string}) => {
     return (
         <>
             <div className={styles.container}>
@@ -14,6 +15,10 @@ const PromptSubmitted = () => {
                 </h1>
 
                 Submitted!
+
+                <Link href={`/prompt/gpt3/${id}`}>
+                    link
+                </Link>
 
             </main>
         </>
