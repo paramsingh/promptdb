@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { getPrompt } from "../../../api-client";
+import NotFound from "../../../components/NotFound";
 
 const GPT3Prompt = () => {
     const [text, setText] = useState<string>('');
@@ -8,12 +9,15 @@ const GPT3Prompt = () => {
     const [sampleOutput, setSampleOutput] = useState<string>('');
     const [description, setDescription] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(true);
+    const [notFound, setNotFound] = useState<boolean>(false);
 
     const router = useRouter();
     const id: string = String(router.query.id);
 
     getPrompt(id).then(val => {
-        if (val == null) {
+        setLoading(false);
+        if (val === null) {
+            setNotFound(true);
             return;
         }
         console.log(val);
@@ -21,19 +25,21 @@ const GPT3Prompt = () => {
         setSampleInput(val["sample_input"]);
         setSampleOutput(val["sample_output"]);
         setDescription(val.description);
-        setLoading(false);
     });
 
     if (loading) {
         return <p>Loading...</p>;
     }
+    if (notFound) {
+        return <NotFound />
+    }
     return (
         <>
-            <p>{id}</p>
-            <p>{text}</p>
-            <p>{sampleInput}</p>
-            <p>{sampleOutput}</p>
-            <p>{description}</p>
+            <p>ID: {id}</p>
+            <p>prompt text: {text}</p>
+            <p>sample input: {sampleInput}</p>
+            <p>sample output: {sampleOutput}</p>
+            <p>description: {description}</p>
         </>
     );
 }
