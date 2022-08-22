@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { getPrompt } from "../../../api-client";
+import Head from 'next/head';
+import styles from '../../../styles/Home.module.css'
 import NotFound from "../../../components/NotFound";
 
 const GPT3Prompt = () => {
@@ -20,7 +22,6 @@ const GPT3Prompt = () => {
             setNotFound(true);
             return;
         }
-        console.log(val);
         setText(val.text);
         setSampleInput(val["sample_input"]);
         setSampleOutput(val["sample_output"]);
@@ -34,13 +35,20 @@ const GPT3Prompt = () => {
         return <NotFound />
     }
     return (
-        <>
-            <p>ID: {id}</p>
-            <p>prompt text: {text}</p>
-            <p>sample input: {sampleInput}</p>
-            <p>sample output: {sampleOutput}</p>
-            <p>description: {description}</p>
-        </>
+        <div className={styles.container}>
+            <Head>
+                <title>New prompt</title>
+            </Head>
+            <main className={styles.main}>
+                <h1 className={styles.title} style={{marginBottom: '50px'}}>
+                    Prompt details
+                </h1>
+                <p>Prompt text: {text}</p>
+                <p>Sample Input: {sampleInput}</p>
+                <p>Sample Output: {sampleOutput}</p>
+                <p>Description: {description}</p>
+            </main>
+        </div>
     );
 }
 
