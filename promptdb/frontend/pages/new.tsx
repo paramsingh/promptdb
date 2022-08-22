@@ -6,7 +6,6 @@ import styles from '../styles/Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { submitPrompt } from '../api-client';
-import { brotliDecompressSync } from 'zlib';
 import PromptSubmitted from '../components/PromptSubmitted';
 
 const NewPrompt: NextPage = () => {
@@ -46,22 +45,22 @@ const NewPrompt: NextPage = () => {
           <div className={styles.grid} style={{marginTop: '40px'}}>
             <Form.Label>Your prompt text</Form.Label>
             <InputGroup className="mb-3">
-              <FormControl size="lg" onChange={(e) => onInput(e, setText)}/>
+              <FormControl size="lg" as="textarea" onChange={(e) => onInput(e, setText)}/>
             </InputGroup>
 
             <Form.Label>Sample Input</Form.Label>
             <InputGroup className="mb-3">
-              <FormControl size="lg" onChange={(e) => onInput(e, setSampleInput)}/>
+              <FormControl size="lg" as="textarea" onChange={(e) => onInput(e, setSampleInput)}/>
             </InputGroup>
 
             <Form.Label>Sample Output</Form.Label>
             <InputGroup className="mb-3">
-              <FormControl size="lg" onChange={(e) => onInput(e, setSampleOutput)}/>
+              <FormControl size="lg" as="textarea" onChange={(e) => onInput(e, setSampleOutput)}/>
             </InputGroup>
 
             <Form.Label>Description</Form.Label>
             <InputGroup className="mb-3">
-              <FormControl size="lg" onChange={(e) => onInput(e, setDescription)}/>
+              <FormControl as="textarea" size="lg" onChange={(e) => onInput(e, setDescription)}/>
             </InputGroup>
             <Button className={styles.button} onClick={onSubmit}>Submit</Button>
           </div>
