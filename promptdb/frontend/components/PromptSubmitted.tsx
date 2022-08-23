@@ -10,15 +10,16 @@ const PromptSubmitted = ({id}: {id: string}) => {
                 <Head><title>New Prompt</title></Head>
             </div>
             <main className={styles.main}>
-                <h1 className={styles.title}>
+                <h1 className={styles.title} style={{marginBottom: "20px"}}>
                     Create a new prompt
                 </h1>
 
-                Submitted!
+                <h2>Submitted!{' '}(
 
-                <Link href={`/prompt/gpt3/${id}`}>
-                    link
-                </Link>
+                    <Link href={`/prompt/gpt3/${id}`}>
+                        Link
+                    </Link>)
+                </h2>
 
             </main>
         </>
