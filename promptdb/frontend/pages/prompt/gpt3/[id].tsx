@@ -37,7 +37,7 @@ const GPT3Prompt = () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>New prompt</title>
+                <title>Prompt details - PromptDB</title>
             </Head>
             <main className={styles.main}>
                 <h1 className={styles.title} style={{marginBottom: '50px'}}>

@@ -2,26 +2,24 @@ import axios from 'axios';
 
 const BASE_URL = 'http://localhost:5000/api/v1'
 
-const submitPrompt = (
+const submitPrompt = async (
     text: string,
     sampleInput: string,
     sampleOutput: string,
     description: string,
-    setSubmitted: (loading: boolean) => void,
-    setId: (id: string) => void,
 ) => {
-    axios.post(`${BASE_URL}/prompt/save`, {
-        text,
-        sampleInput,
-        sampleOutput,
-        description,
-    }).then(response => {
-        console.log(response.data);
-        setSubmitted(true);
-        setId(response.data.id)
-    }).catch(err => {
+    try {
+        const response = await axios.post(`${BASE_URL}/prompt/save`, {
+            text,
+            sampleInput,
+            sampleOutput,
+            description,
+        })
+        return response.data.id;
+    }
+    catch(err) {
         alert("Something went wrong, please try again later!")
-    })
+    }
 }
 
 const getPrompt = async (id: string) => {

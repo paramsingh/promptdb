@@ -19,7 +19,10 @@ const NewPrompt: NextPage = () => {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    submitPrompt(text, sampleInput, sampleOutput, description, setSubmitted, setId);
+    submitPrompt(text, sampleInput, sampleOutput, description).then(createdPromptId => {
+      setId(createdPromptId);
+      setSubmitted(true);
+    });
   };
 
   const onInput = (e: any, fn: (s: string) => void): void => {
