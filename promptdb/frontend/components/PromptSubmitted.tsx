@@ -2,6 +2,7 @@ import * as React from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
+import Footer from './Footer';
 
 const PromptSubmitted = ({id}: {id: string}) => {
     return (
@@ -22,6 +23,7 @@ const PromptSubmitted = ({id}: {id: string}) => {
                 </h2>
 
             </main>
+            <Footer/>
         </>
     )
 }

@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 import { useState } from 'react';
 import { submitPrompt } from '../api-client';
 import PromptSubmitted from '../components/PromptSubmitted';
+import Footer from '../components/Footer';
 
 const NewPrompt: NextPage = () => {
 
@@ -67,8 +68,8 @@ const NewPrompt: NextPage = () => {
             </InputGroup>
             <Button className={styles.button} onClick={onSubmit}>Submit</Button>
           </div>
-
       </main>
+      <Footer/>
     </div>
   )
 }

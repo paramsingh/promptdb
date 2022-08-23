@@ -4,6 +4,7 @@ import { getPrompt } from "../../../api-client";
 import Head from 'next/head';
 import styles from '../../../styles/Home.module.css'
 import NotFound from "../../../components/NotFound";
+import Footer from "../../../components/Footer";
 
 const GPT3Prompt = () => {
     const [text, setText] = useState<string>('');
@@ -48,6 +49,7 @@ const GPT3Prompt = () => {
                 <p>Sample Output: {sampleOutput}</p>
                 <p>Description: {description}</p>
             </main>
+            <Footer/>
         </div>
     );
 }
