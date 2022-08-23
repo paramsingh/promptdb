@@ -46,7 +46,7 @@ const NewPrompt: NextPage = () => {
               Create a new prompt
           </h1>
 
-          <div className={styles.grid} style={{marginTop: '40px'}}>
+          <Form className={styles.grid} style={{marginTop: '40px'}} onSubmit={onSubmit}>
             <Form.Label>Your prompt text</Form.Label>
             <InputGroup className="mb-3">
               <FormControl size="lg" as="textarea" onChange={(e) => onInput(e, setText)}/>
@@ -66,8 +66,8 @@ const NewPrompt: NextPage = () => {
             <InputGroup className="mb-3">
               <FormControl as="textarea" size="lg" onChange={(e) => onInput(e, setDescription)}/>
             </InputGroup>
-            <Button className={styles.button} onClick={onSubmit}>Submit</Button>
-          </div>
+            <Button className={styles.button} onClick={onSubmit} type="submit">Submit</Button>
+          </Form>
       </main>
       <Footer/>
     </div>
