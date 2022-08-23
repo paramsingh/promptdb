@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head';
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import styles from '../styles/Home.module.css'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { submitPrompt } from '../api-client';
 import PromptSubmitted from '../components/PromptSubmitted';
