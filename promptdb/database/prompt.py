@@ -96,9 +96,9 @@ def list_prompts(offset: int = 0) -> List[Prompt]:
              , sample_output
              , description
           FROM prompt
+      ORDER BY created
          LIMIT 100
         OFFSET ?
-      ORDER BY created
-    """, (offset, ))
+    """, (offset,))
 
     return [_row_to_prompt(row) for row in rows.fetchall() if row is not None]

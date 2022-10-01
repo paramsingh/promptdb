@@ -32,4 +32,14 @@ const getPrompt = async (id: string) => {
     }
 }
 
-export {submitPrompt, getPrompt};
+const listPrompts = async (offset: number) => {
+    try {
+        const response = await axios.get(`${BASE_URL}/prompt/browse?offset=${offset}`)
+        return response.data.prompts;
+    } catch (err: any) {
+        console.log(err);
+        return null;
+    }
+}
+
+export {submitPrompt, getPrompt, listPrompts};

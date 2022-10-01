@@ -36,7 +36,7 @@ def get_prompt_endpoint() -> Response:
     return jsonify(prompt.to_dict())
 
 
-@api_bp.route('/browse')
+@api_bp.route('/prompt/browse')
 @cross_origin()
 def browse() -> Response:
     offset = request.args.get('offset', 0)
