@@ -6,7 +6,8 @@
 - [x] Create an about page
 - [x] Host
 - [x] For GPT-3 prompts, we probably want just input and output, and an optional description
-- [] Add a navbar on all pages
+- [x] Add a navbar on all pages
+- [] Style the navbar better
 - [] Fix style on the prompt details page
   - [] This is in dark mode for some reason
   - [] The prompt being displayed is very ugly
