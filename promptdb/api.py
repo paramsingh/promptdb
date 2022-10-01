@@ -4,7 +4,7 @@ from flask_cors import cross_origin  # type: ignore
 import promptdb.database as db
 from flask import Blueprint, jsonify, Response, request
 
-from promptdb.database.prompt import create_prompt, get_prompt
+from promptdb.database.prompt import create_prompt, get_prompt, list_prompts
 
 api_bp = Blueprint('api_v1', __name__)
 
@@ -34,3 +34,11 @@ def get_prompt_endpoint() -> Response:
     if prompt is None:
         return jsonify({"error": "not found"}), 404
     return jsonify(prompt.to_dict())
+
+
+@api_bp.route('/browse')
+@cross_origin()
+def browse() -> Response:
+    offset = request.args.get('offset', 0)
+    prompts = list_prompts(offset)
+    return jsonify({"prompts": [prompt.to_dict() for prompt in prompts]})

@@ -1,5 +1,5 @@
 import datetime
-from typing import Dict, Optional, Union
+from typing import Dict, Optional, Union, List
 import uuid
 from dataclasses import dataclass
 
@@ -66,15 +66,39 @@ def get_prompt(id: str) -> Prompt:
          WHERE uuid = ?
     """, (id,))
     p = val.fetchone()
-    if not p:
+    return _row_to_prompt(p)
+
+def _row_to_prompt(row) -> Optional[Prompt]:
+    if not row:
         return None
     return Prompt(
-        id=p[0],
-        uuid=p[1],
-        text=p[2],
-        model=p[3],
-        created=p[4],
-        sample_input=p[5],
-        sample_output=p[6],
-        description=p[7],
+        id=row[0],
+        uuid=row[1],
+        text=row[2],
+        model=row[3],
+        created=row[4],
+        sample_input=row[5],
+        sample_output=row[6],
+        description=row[7],
     )
+
+def list_prompts(offset: int = 0) -> List[Prompt]:
+    connection = db.init_db()
+    cursor = connection.cursor()
+
+    rows = cursor.execute("""
+        SELECT id
+             , uuid
+             , text
+             , model
+             , created
+             , sample_input
+             , sample_output
+             , description
+          FROM prompt
+         LIMIT 100
+        OFFSET ?
+      ORDER BY created
+    """, (offset, ))
+
+    return [_row_to_prompt(row) for row in rows.fetchall() if row is not None]
