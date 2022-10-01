@@ -30,8 +30,8 @@ const BrowsePrompts: NextPage = () => {
               key={prompt.uuid}
               id={prompt.uuid}
               text={prompt.text}
-              sampleInput={prompt.sampleInput}
-              sampleOutput={prompt.sampleOutput}
+              sampleInput={prompt.sample_input}
+              sampleOutput={prompt.sample_output}
               description={prompt.description}
             />
           ))}

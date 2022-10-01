@@ -32,7 +32,7 @@ const PromptCard = ({
 
         {sampleOutput && (
           <>
-            <h5 className="card-title">Sample Output</h5>
+            <h5 className="card-title">Output</h5>
             <p className="card-text">{sampleOutput}</p>
           </>
         )}
