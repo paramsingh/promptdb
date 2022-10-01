@@ -14,6 +14,8 @@ const About: NextPage = () => {
       <NavBar />
 
       <main className={styles.main}>
+        <h1 className={styles.title}>About</h1>
+
         <p>
           PromptDB is a database for prompts for large language models like
           GPT-3.
