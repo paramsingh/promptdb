@@ -1,10 +1,10 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from '../components/Footer';
-import Link from 'next/link';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "../components/Footer";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -14,12 +14,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to PromptDB!
-        </h1>
+        <h1 className={styles.title}>Welcome to PromptDB!</h1>
 
         <p className={styles.description}>
-          PromptDB is the open database to store and share prompts for models like GPT-3, Dall-E, Midjourney and StableDiffusion.
+          PromptDB is the open database to store and share prompts for models
+          like GPT-3, Dall-E, Midjourney and StableDiffusion.
         </p>
 
         <div className={styles.grid}>
@@ -39,9 +38,9 @@ const Home: NextPage = () => {
         </div>
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
