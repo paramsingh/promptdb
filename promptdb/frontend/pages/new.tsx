@@ -12,14 +12,13 @@ import Footer from "../components/Footer";
 const NewPrompt: NextPage = () => {
   const [id, setId] = useState<string>("");
   const [text, setText] = useState<string>("");
-  const [sampleInput, setSampleInput] = useState<string>("");
   const [sampleOutput, setSampleOutput] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [submitted, setSubmitted] = useState<boolean>(false);
 
   const onSubmit = (e: any) => {
     e.preventDefault();
-    submitPrompt(text, sampleInput, sampleOutput, description).then(
+    submitPrompt(text, "", sampleOutput, description).then(
       (createdPromptId) => {
         setId(createdPromptId);
         setSubmitted(true);
@@ -59,16 +58,7 @@ const NewPrompt: NextPage = () => {
             />
           </InputGroup>
 
-          <Form.Label>Sample Input</Form.Label>
-          <InputGroup className="mb-3">
-            <FormControl
-              size="lg"
-              as="textarea"
-              onChange={(e) => onInput(e, setSampleInput)}
-            />
-          </InputGroup>
-
-          <Form.Label>Sample Output</Form.Label>
+          <Form.Label>Output</Form.Label>
           <InputGroup className="mb-3">
             <FormControl
               size="lg"

@@ -22,12 +22,27 @@ const PromptCard = ({
       >
         <h5 className="card-title">Prompt</h5>
         <p className="card-text">{text}</p>
-        <h5 className="card-title">Sample Input</h5>
-        <p className="card-text">{sampleInput}</p>
-        <h5 className="card-title">Sample Output</h5>
-        <p className="card-text">{sampleOutput}</p>
-        <h5 className="card-title">Description</h5>
-        <p className="card-text">{description}</p>
+
+        {sampleInput && (
+          <>
+            <h5 className="card-title">Sample Input</h5>
+            <p className="card-text">{sampleInput}</p>
+          </>
+        )}
+
+        {sampleOutput && (
+          <>
+            <h5 className="card-title">Sample Output</h5>
+            <p className="card-text">{sampleOutput}</p>
+          </>
+        )}
+
+        {description && (
+          <>
+            <h5 className="card-title">Description</h5>
+            <p className="card-text">{description}</p>
+          </>
+        )}
       </div>
     </Link>
   );
