@@ -5,6 +5,7 @@ import Head from "next/head";
 import styles from "../../../styles/Home.module.css";
 import NotFound from "../../../components/NotFound";
 import Footer from "../../../components/Footer";
+import NavBar from "../../../components/NavBar";
 
 const GPT3Prompt = () => {
   const [text, setText] = useState<string>("");
@@ -40,6 +41,7 @@ const GPT3Prompt = () => {
       <Head>
         <title>Prompt details - PromptDB</title>
       </Head>
+      <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title} style={{ marginBottom: "50px" }}>
           Prompt details
