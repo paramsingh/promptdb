@@ -15,6 +15,7 @@
     - [] The cards are clickable but it's not obvious on hover
 - [] Figure out a way to prepopulate data into this somehow
 - [] Probably the best way to display a prompt is like this: https://www.notion.so/React-Components-Generator-015f97ef737e498a8d4d40ff8ccce288
+- [] The best interface for text prompts is livegrep-style search.
 
 
 ## Image models
