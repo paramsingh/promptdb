@@ -5,6 +5,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { listPrompts } from "../api-client";
 import PromptCard from "../components/PromptCard";
+import NavBar from "../components/NavBar";
 
 const BrowsePrompts: NextPage = () => {
   const [prompts, setPrompts] = useState<any[]>([]);
@@ -21,6 +22,7 @@ const BrowsePrompts: NextPage = () => {
       <Head>
         <title>Browse prompts</title>
       </Head>
+      <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title}>Browse prompts</h1>
 

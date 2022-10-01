@@ -3,6 +3,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
+import NavBar from "../components/NavBar";
 
 const About: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const About: NextPage = () => {
       <Head>
         <title>PromptDB - About</title>
       </Head>
+      <NavBar />
 
       <main className={styles.main}>
         <p>

@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import NavBar from "../components/NavBar";
 
 const Home: NextPage = () => {
   return (
@@ -12,6 +12,7 @@ const Home: NextPage = () => {
       <Head>
         <title>PromptDB</title>
       </Head>
+      <NavBar />
 
       <main className={styles.main}>
         <h1 className={styles.title}>Welcome to PromptDB!</h1>

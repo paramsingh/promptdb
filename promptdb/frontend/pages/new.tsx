@@ -8,6 +8,7 @@ import { useState } from "react";
 import { submitPrompt } from "../api-client";
 import PromptSubmitted from "../components/PromptSubmitted";
 import Footer from "../components/Footer";
+import NavBar from "../components/NavBar";
 
 const NewPrompt: NextPage = () => {
   const [id, setId] = useState<string>("");
@@ -41,6 +42,7 @@ const NewPrompt: NextPage = () => {
       <Head>
         <title>New prompt</title>
       </Head>
+      <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title}>Create a new prompt</h1>
 
