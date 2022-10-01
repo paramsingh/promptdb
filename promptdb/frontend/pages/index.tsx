@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
@@ -22,17 +23,19 @@ const Home: NextPage = () => {
         </p>
 
         <div className={styles.grid}>
-          <a href="/new" className={styles.card}>
-            <div>
+          <Link href="/new">
+            <div className={styles.card}>
               <h2>New prompt &rarr;</h2>
               <p>Add a new prompt to PromptDB</p>
             </div>
-          </a>
+          </Link>
 
-          <a href="/browse" className={styles.card}>
-            <h2>Browse &rarr;</h2>
-            <p>Look through the prompts in PromptDB</p>
-          </a>
+          <Link href="/browse">
+            <div className={styles.card}>
+              <h2>Browse &rarr;</h2>
+              <p>Look through the prompts in PromptDB</p>
+            </div>
+          </Link>
         </div>
       </main>
 
