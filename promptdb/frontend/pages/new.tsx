@@ -55,6 +55,7 @@ const NewPrompt: NextPage = () => {
               size="lg"
               as="textarea"
               onChange={(e) => onInput(e, setText)}
+              required={true}
             />
           </InputGroup>
 
@@ -64,6 +65,7 @@ const NewPrompt: NextPage = () => {
               size="lg"
               as="textarea"
               onChange={(e) => onInput(e, setSampleOutput)}
+              required={true}
             />
           </InputGroup>
 

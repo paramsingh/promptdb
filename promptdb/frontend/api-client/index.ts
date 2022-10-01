@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://promptdb.param.codes/api/v1";
+const BASE_URL = "https://promptdb.param.codes/api/v1";
 
 const submitPrompt = async (
   text: string,
