@@ -11,13 +11,11 @@ const NAV_ITEMS = [
 
 const NavBar = () => {
   return (
-    <header style={{ position: "sticky", top: 0, zIndex: 30 }}>
-      <nav className={styles.navbar}>
-        {NAV_ITEMS.map((item) => (
-          <NavItem key={item.text} text={item.text} href={item.href} />
-        ))}
-      </nav>
-    </header>
+    <nav className={styles.navbar}>
+      {NAV_ITEMS.map((item) => (
+        <NavItem key={item.text} text={item.text} href={item.href} />
+      ))}
+    </nav>
   );
 };
 
