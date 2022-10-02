@@ -17,14 +17,16 @@ const PromptCard = ({
 }) => {
   return (
     <Link href={`/prompt/gpt3/${id}`}>
-      <div
-        className="card"
-        style={{ width: "18rem", margin: "10px 10px 10px 10px" }}
-      >
-        <div style={{ margin: "10px 10px 10px 10px" }}>
-          <TextPrompt text={text} output={sampleOutput} />
+      <a style={{ textDecoration: "none", color: "inherit" }}>
+        <div
+          className="card"
+          style={{ width: "18rem", margin: "10px 10px 10px 10px" }}
+        >
+          <div style={{ margin: "10px 10px 10px 10px" }}>
+            <TextPrompt text={text} output={sampleOutput} />
+          </div>
         </div>
-      </div>
+      </a>
     </Link>
   );
 };
