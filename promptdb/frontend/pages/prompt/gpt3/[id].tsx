@@ -36,9 +36,10 @@ const GPT3Prompt = () => {
     });
   }, [id, loading]);
 
-  if (loading || id === undefined) {
-    return <p>Loading...</p>;
-  }
+  const isLoading = () => {
+    return loading || id === "undefined";
+  };
+
   if (notFound) {
     return <NotFound />;
   }
@@ -52,7 +53,8 @@ const GPT3Prompt = () => {
         <h1 className={styles.title} style={{ marginBottom: "50px" }}>
           Prompt
         </h1>
-        <TextPrompt text={text} output={sampleOutput} />
+        {isLoading() && <p>Loading...</p>}
+        {!isLoading() && <TextPrompt text={text} output={sampleOutput} />}
       </main>
       <Footer />
     </div>
