@@ -6,7 +6,6 @@ import styles from "../../../styles/Home.module.css";
 import NotFound from "../../../components/NotFound";
 import Footer from "../../../components/Footer";
 import NavBar from "../../../components/NavBar";
-import PromptCard from "../../../components/PromptCard";
 import TextPrompt from "../../../components/TextPrompt";
 
 const GPT3Prompt = () => {
