@@ -1,5 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
+import TextPrompt from "./TextPrompt";
 
 const PromptCard = ({
   text,
@@ -20,29 +21,9 @@ const PromptCard = ({
         className="card"
         style={{ width: "18rem", margin: "10px 10px 10px 10px" }}
       >
-        <h5 className="card-title">Prompt</h5>
-        <p className="card-text">{text}</p>
-
-        {sampleInput && (
-          <>
-            <h5 className="card-title">Sample Input</h5>
-            <p className="card-text">{sampleInput}</p>
-          </>
-        )}
-
-        {sampleOutput && (
-          <>
-            <h5 className="card-title">Output</h5>
-            <p className="card-text">{sampleOutput}</p>
-          </>
-        )}
-
-        {description && (
-          <>
-            <h5 className="card-title">Description</h5>
-            <p className="card-text">{description}</p>
-          </>
-        )}
+        <div style={{ margin: "10px 10px 10px 10px" }}>
+          <TextPrompt text={text} output={sampleOutput} />
+        </div>
       </div>
     </Link>
   );

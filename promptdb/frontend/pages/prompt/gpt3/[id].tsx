@@ -6,6 +6,8 @@ import styles from "../../../styles/Home.module.css";
 import NotFound from "../../../components/NotFound";
 import Footer from "../../../components/Footer";
 import NavBar from "../../../components/NavBar";
+import PromptCard from "../../../components/PromptCard";
+import TextPrompt from "../../../components/TextPrompt";
 
 const GPT3Prompt = () => {
   const [text, setText] = useState<string>("");
@@ -44,12 +46,9 @@ const GPT3Prompt = () => {
       <NavBar />
       <main className={styles.main}>
         <h1 className={styles.title} style={{ marginBottom: "50px" }}>
-          Prompt details
+          Prompt
         </h1>
-        <p>Prompt text: {text}</p>
-        <p>Sample Input: {sampleInput}</p>
-        <p>Sample Output: {sampleOutput}</p>
-        <p>Description: {description}</p>
+        <TextPrompt text={text} output={sampleOutput} />
       </main>
       <Footer />
     </div>
