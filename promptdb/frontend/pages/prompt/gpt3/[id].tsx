@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { getPrompt } from "../../../api-client";
 import Head from "next/head";
@@ -20,19 +20,23 @@ const GPT3Prompt = () => {
   const router = useRouter();
   const id: string = String(router.query.id);
 
-  getPrompt(id).then((val) => {
-    setLoading(false);
-    if (val === null) {
-      setNotFound(true);
-      return;
-    }
-    setText(val.text);
-    setSampleInput(val["sample_input"]);
-    setSampleOutput(val["sample_output"]);
-    setDescription(val.description);
-  });
+  useEffect(() => {
+    if (id === "undefined") return;
+    if (!loading) return;
+    getPrompt(id).then((val) => {
+      setLoading(false);
+      if (val === null) {
+        setNotFound(true);
+        return;
+      }
+      setText(val.text);
+      setSampleInput(val["sample_input"]);
+      setSampleOutput(val["sample_output"]);
+      setDescription(val.description);
+    });
+  }, [id, loading]);
 
-  if (loading) {
+  if (loading || id === undefined) {
     return <p>Loading...</p>;
   }
   if (notFound) {

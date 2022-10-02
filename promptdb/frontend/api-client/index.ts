@@ -22,6 +22,9 @@ const submitPrompt = async (
 };
 
 const getPrompt = async (id: string) => {
+  if (id === "undefined") {
+    return null;
+  }
   try {
     const response = await axios.get(`${BASE_URL}/prompt/get?id=${id}`);
     return response.data;
