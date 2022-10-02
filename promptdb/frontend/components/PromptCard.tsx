@@ -1,6 +1,7 @@
 import * as React from "react";
 import Link from "next/link";
 import TextPrompt from "./TextPrompt";
+import styles from "../styles/Home.module.css";
 
 const PromptCard = ({
   text,
@@ -16,18 +17,13 @@ const PromptCard = ({
   id: string;
 }) => {
   return (
-    <Link href={`/prompt/gpt3/${id}`}>
-      <a style={{ textDecoration: "none", color: "inherit" }}>
-        <div
-          className="card"
-          style={{ width: "18rem", margin: "10px 10px 10px 10px" }}
-        >
-          <div style={{ margin: "10px 10px 10px 10px" }}>
-            <TextPrompt text={text} output={sampleOutput} />
-          </div>
-        </div>
-      </a>
-    </Link>
+    <div className={styles.card}>
+      <Link href={`/prompt/gpt3/${id}`}>
+        <a style={{ textDecoration: "none", color: "inherit" }}>
+          <TextPrompt text={text} output={sampleOutput} />
+        </a>
+      </Link>
+    </div>
   );
 };
 
