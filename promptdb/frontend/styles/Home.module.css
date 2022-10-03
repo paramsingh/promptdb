@@ -85,6 +85,17 @@
   max-width: 300px;
 }
 
+.prompt_card {
+  max-width: 750px;
+  min-width: 750px;
+}
+
+@media (max-width: 750px) {
+  .prompt_card {
+    min-width: auto;
+  }
+}
+
 .card:hover,
 .card:focus,
 .card:active {
