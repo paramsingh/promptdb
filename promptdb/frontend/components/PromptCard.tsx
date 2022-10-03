@@ -17,7 +17,7 @@ const PromptCard = ({
   id: string;
 }) => {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} style={{ maxWidth: "750px" }}>
       <Link href={`/prompt/gpt3/${id}`}>
         <a style={{ textDecoration: "none", color: "inherit" }}>
           <TextPrompt text={text} output={sampleOutput} />

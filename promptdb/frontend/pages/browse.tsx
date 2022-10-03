@@ -26,7 +26,7 @@ const BrowsePrompts: NextPage = () => {
       <main className={styles.main}>
         <h1 className={styles.title}>Browse prompts</h1>
 
-        <div className={styles.grid}>
+        <div>
           {prompts?.map((prompt) => (
             <PromptCard
               key={prompt.uuid}
